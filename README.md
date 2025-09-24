@@ -1,2 +1,3 @@
-# LeetCodeSolutions
-My repo for leetcode solutions
+# LeetCode Solutions
+
+My coding practice solutions.
