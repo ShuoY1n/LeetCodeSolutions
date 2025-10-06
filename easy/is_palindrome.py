@@ -8,15 +8,17 @@ and removing all non-alphanumeric characters, it reads the same forward and back
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        def isLetters(c):
-            return ord('a') <= ord(c) and ord('z') >= ord(c) or ord('0') <= ord(c) and ord('9') >= ord(c) 
-
         s = s.lower()
-        s = "".join(char for char in s if isLetters(char))
         left = 0
         right = len(s) - 1
         
         while (left <= right):
+            if (not (ord(s[left]) >= ord('a') and ord(s[left]) <= ord('z') or ord(s[left]) >= ord('0') and ord(s[left]) <= ord('9'))):
+                left += 1
+                continue
+            if (not (ord(s[right]) >= ord('a') and ord(s[right]) <= ord('z') or ord(s[right]) >= ord('0') and ord(s[right]) <= ord('9'))):
+                right -= 1
+                continue
             if (s[left] != s[right]):
                 return False
             left += 1
